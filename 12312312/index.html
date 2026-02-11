@@ -1,0 +1,165 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Valentine 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(255,209,220,0.85), rgba(255,158,188,0.85)), url('canva-bg.jpg') center/cover no-repeat;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .card {
+      background: white;
+      width: 90%;
+      max-width: 420px;
+      padding: 32px 24px 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .corner-sticker {
+      position: absolute;
+      bottom: 10px;
+      right: -5px;
+      width: 120px;
+      pointer-events: none;
+    }
+    .bottom-sticker{
+      position: absolute;
+      bottom: 5px;
+      right: 100px;
+      width: 180px;
+      pointer-events: none;
+    }
+    .bottom-sticker-2{
+      position: absolute;
+      bottom:  06px;
+      right:170px;
+      width: 100px;
+      pointer-events:none;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #e6004c;
+      margin-bottom: 24px;
+      font-size: 2.0rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    button {
+      border: 2px solid #e6004c;
+      background: white;
+      color: #e6004c;
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background: #e6004c;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .hidden { display: none; }
+
+    .details {
+      font-family: 'Itim', cursive; 
+      color: #e6004c; 
+      text-align: left; 
+      padding-left: 20px;
+    }
+
+    .details p {
+      font-size: 1.6rem;
+      margin: 7px 0;
+      line-height: 1.6;
+    }
+
+    .details p span {
+      display: block;
+    }
+
+    .heart {
+      font-size: 2rem;
+      margin: 12px 0;
+    }
+
+    .emoji {
+      font-size: 2.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="card" id="page1">
+    <h1>Hey CJ<br>Will you be my Valentine?</h1>
+    <img src="skier.png" alt="cute sticker" class="corner-sticker">
+    <div class="buttons">
+      <button onclick="yesClick()">Yes </button>
+      <div class="heart">❤️</div>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="card hidden" id="page2">
+    <h1>It's a date then ❤️</h1>
+    <div class="details">
+      <p><strong>Place:</strong> I'm not allegic to anything </p>
+      <p><strong>Time:</strong> FEB/14-15</p>
+      <p>Can’t wait to see you   <span class="emoji">🧸</span></p>
+      <img src="mountain.png" alt="cute sticker" class="bottom-sticker">
+      <img src="skier.png" alt="cute sticker" class="bottom-sticker-2">
+
+    </div>
+  </div>
+
+  <script>
+    function yesClick() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+
+    }
+
+    const noBtn = document.getElementById('noBtn');
+
+    noBtn.addEventListener('mouseenter', moveButton);
+    noBtn.addEventListener('click', moveButton);
+
+    function moveButton() {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+
+</body>
+</html>
