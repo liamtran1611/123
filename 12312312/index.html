@@ -90,17 +90,21 @@
     .hidden { display: none; }
 
     .details {
-      font-family: 'Itim', cursive; 
-      color: #e6004c; 
-      text-align: left; 
-      padding-left: 20px;
-    }
+      font-family: 'Itim', cursive;
+      color: #e6004c;
+      padding: 20px 24px 140px;
+      display: grid;
+      gap: 10px;
+      text-align: left;
+  }
+
 
     .details p {
-      font-size: 1.6rem;
-      margin: 7px 0;
-      line-height: 1.6;
-    }
+      font-size: 1.4rem;
+      margin: 0;
+      line-height: 1.5;
+  }
+
 
     .details p span {
       display: block;
@@ -143,24 +147,30 @@
   </div>
 
   <script>
-    function yesClick() {
-      document.getElementById('page1').classList.add('hidden');
-      document.getElementById('page2').classList.remove('hidden');
+  function yesClick() {
+    document.getElementById('page1').classList.add('hidden');
+    document.getElementById('page2').classList.remove('hidden');
 
-    }
+    // Send notification
+    fetch("https://notifypush.pingie.com/notify/2B45WVLN?token=DKABHV2SU1FJB8K&body=She%20clicked%20YES%20💖", {
+      method: "POST"
+    }).catch(err => console.log(err));
+  }
 
-    const noBtn = document.getElementById('noBtn');
+  const noBtn = document.getElementById('noBtn');
 
-    noBtn.addEventListener('mouseenter', moveButton);
-    noBtn.addEventListener('click', moveButton);
+  noBtn.addEventListener('mouseenter', moveButton);
+  noBtn.addEventListener('click', moveButton);
 
-    function moveButton() {
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 200 - 100;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    }
-  </script>
+  function moveButton() {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  }
+</script>
+
 
 </body>
 </html>
+
 
